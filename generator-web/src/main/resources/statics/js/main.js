@@ -31,13 +31,7 @@ const vm = new Vue({
 	el: '#rrapp',
 	data: {
 		formData: {
-			tableSql: "CREATE TABLE 'sys_user_info' (\n" +
-				"  'user_id' int(11) NOT NULL AUTO_INCREMENT COMMENT '用户编号',\n" +
-				"  'user_name' varchar(255) NOT NULL COMMENT '用户名',\n" +
-				"  'status' tinyint(1) NOT NULL COMMENT '状态',\n" +
-				"  'create_time' datetime NOT NULL COMMENT '创建时间',\n" +
-				"  PRIMARY KEY ('user_id')\n" +
-				") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'",
+			tableSql: "",
 			options: {
 				dataType: "sql",
 
@@ -86,9 +80,9 @@ const vm = new Vue({
 				const valueSession = sessionStorage.getItem(tableName);
 				vm.outputJson = JSON.parse(valueSession);
 				console.log(valueSession);
-				alert("切换历史记录成功:"+tableName);
+				alert("Switched to "+tableName);
 			}else{
-				alert("浏览器不支持sessionStorage");
+				alert("Your browser does not support sessionStorage");
 			}
 			vm.outputStr=vm.outputJson[vm.currentSelect].trim();
 			$.outputArea.setValue(vm.outputStr);
@@ -120,7 +114,7 @@ const vm = new Vue({
 			vm.formData.tableSql=$.inputArea.getValue();
 			axios.post("code/generate",vm.formData).then(function(res){
 				if(res.code===500){
-					error("生成失败");
+					error("Failed!");
 					return;
 				}
 				//console.log(res.outputJson);
@@ -133,11 +127,11 @@ const vm = new Vue({
 				$.outputArea.setSize('auto', 'auto');
 				//add to historicalData
 				vm.setHistoricalData(res.outputJson.tableName);
-				alert("生成成功");
+				alert("Success!");
 			});
 		},
 		copy : function (){
-			navigator.clipboard.writeText(vm.outputStr.trim()).then(r => {alert("已复制")});
+			navigator.clipboard.writeText(vm.outputStr.trim()).then(r => {alert("Copied")});
 		}
 	},
 	created: function () {

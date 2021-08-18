@@ -1,5 +1,10 @@
 # SpringBootCodeGenerator
 ----
+主要是自己太懶，重複的東西不想要一直打，所以fork回來把裡面的東西改成自己日常會用到的
+自用，但完成後應該會架在自己的網頁上，不會另行公佈/Release。
+
+## 原本的README
+----
 又名`JAVA在线代码生成平台`、`sql转java`、`大狼狗代码生成器`、`mybatis在线生成器`、`SQL转Java JPA、MYBATIS实现类代码生成平台`<br>
 ![image](https://img.shields.io/badge/SpringBoot2-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85-blue.svg)
 ![image](https://img.shields.io/badge/Freemarker-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85-blue.svg)

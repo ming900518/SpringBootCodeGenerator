@@ -20,27 +20,27 @@
     <div style="padding: 10px 0 20px 10px;">
         <el-form ref="form" :inline="true" :model="formData"  label-width="100px" size="mini">
             <!-- input area-->
-            <el-form-item label="输入区域">
-                <textarea id="inputArea" placeholder="请输入表结构信息..." style="height: 250px;line-height : 10px;" v-model="formData.tableSql"></textarea>
+            <el-form-item label="SQL CREATE TABLE">
+                <textarea id="inputArea" style="height: 250px;line-height : 10px;" v-model="formData.tableSql"></textarea>
             </el-form-item>
             <hr>
             <!-- setting area-->
-                <el-form-item label="作者">
+                <el-form-item label="Author Name">
                     <el-input v-model="formData.options.authorName"></el-input>
                 </el-form-item>
-                <el-form-item label="包名">
+                <el-form-item label="Package Name">
                     <el-input v-model="formData.options.packageName"></el-input>
                 </el-form-item>
-                <el-form-item label="返回(成功)">
+                <el-form-item label="Return (Success)">
                     <el-input v-model="formData.options.returnUtilSuccess"></el-input>
                 </el-form-item>
-                <el-form-item label="返回(失败)">
+                <el-form-item label="Return (Failure)">
                     <el-input v-model="formData.options.returnUtilFailure"></el-input>
                 </el-form-item>
-                <el-form-item label="忽略前缀">
+                <el-form-item label="Ignore Prefix">
                     <el-input v-model="formData.options.ignorePrefix"></el-input>
                 </el-form-item>
-                <el-form-item label="输入类型">
+                <el-form-item label="Data Type">
                     <el-select v-model="formData.options.dataType" >
                         <el-option label="DDL SQL" value="sql"></el-option>
                         <el-option label="JSON" value="json"></el-option>
@@ -48,7 +48,7 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="TinyInt转换">
+                <el-form-item label="TinyInt Convert">
                     <el-select v-model="formData.options.tinyintTransType">
                         <el-option value="boolean" label="boolean"></el-option>
                         <el-option value="Boolean" label="Boolean"></el-option>
@@ -58,7 +58,7 @@
                         <el-option value="Short" label="Short"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="时间类型">
+                <el-form-item label="Time Format">
                     <el-select v-model="formData.options.timeTransType">
                         <el-option value="Date" label="Date"></el-option>
                         <el-option value="DateTime" label="DateTime"></el-option>
@@ -70,25 +70,25 @@
                         <el-option value="LocalTime" label="LocalTime"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="命名类型">
+                <el-form-item label="Case Type">
                     <el-select v-model="formData.options.nameCaseType">
-                        <el-option label="驼峰" value="CamelCase"></el-option>
-                        <el-option label="下划线" value="UnderScoreCase"></el-option>
+                        <el-option label="Small Camel Case (aaBbCc)" value="CamelCase"></el-option>
+                        <el-option label="Underscore (aa_bb_cc)" value="UnderScoreCase"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="包装类型">
+                <el-form-item label="Package Type">
                     <el-switch v-model="formData.options.isPackageType"></el-switch>
                 </el-form-item>
-                <el-form-item label="swaggerUI">
+                <el-form-item label="SwaggerUI">
                     <el-switch v-model="formData.options.isSwagger"></el-switch>
                 </el-form-item>
-                <el-form-item label="字段注释">
+                <el-form-item label="Comment">
                     <el-switch v-model="formData.options.isComment"></el-switch>
                 </el-form-item>
-                <el-form-item label="自动引包">
+                <el-form-item label="Auto Import">
                     <el-switch v-model="formData.options.isAutoImport"></el-switch>
                 </el-form-item>
-                <el-form-item label="带包路径">
+                <el-form-item label="With Package">
                     <el-switch v-model="formData.options.isWithPackage"></el-switch>
                 </el-form-item>
                 <el-form-item label="Lombok">
@@ -96,11 +96,11 @@
                 </el-form-item>
             <hr>
             <!--generate button-->
-                <el-button type="primary" icon="el-icon-caret-right" @click="generate">生成</el-button>
-                <el-button type="primary" icon="el-icon-document-copy" @click="copy" plain>复制</el-button>
+                <el-button type="primary" icon="el-icon-caret-right" @click="generate">Generate</el-button>
+                <el-button type="primary" icon="el-icon-document-copy" @click="copy" plain>Copy</el-button>
                 <span  v-if="historicalData.length>0" >
                     <el-button-group>
-                        <el-button type="primary" plain disabled round>历史记录</el-button>
+                        <el-button type="primary" plain disabled round>History</el-button>
                         <span v-for="(item, index) in historicalData" :key="index">
                                 <el-button @click="switchHistoricalData" >{{item}}</el-button>
                             </span>
@@ -125,8 +125,8 @@
             </el-form>
             <hr>
            <!-- output area-->
-            <el-form-item label="输出区域">
-                <textarea id="outputArea" placeholder="请输入表结构信息..." style="height: 250px;" v-model="outputStr"></textarea>
+            <el-form-item label="Output">
+                <textarea id="outputArea" style="height: 250px;" v-model="outputStr"></textarea>
             </el-form-item>
         </el-form>
     </div>

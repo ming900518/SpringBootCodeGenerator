@@ -48,7 +48,7 @@ public class FreemarkerUtil {
             freemarkerConfig.setNumberFormat("#");
             freemarkerConfig.setClassicCompatible(true);
             freemarkerConfig.setDefaultEncoding("UTF-8");
-            freemarkerConfig.setLocale(Locale.CHINA);
+            freemarkerConfig.setLocale(Locale.TRADITIONAL_CHINESE);
             freemarkerConfig.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
